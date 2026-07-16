@@ -397,11 +397,11 @@ function submitForm(e){
   if(btn){btn.disabled=true;btn.textContent='접수 중...';}
   var payload={
     submittedAt:new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),
-    name:(f.elements['name'].value||'').trim(),
+    name:((f.querySelector('[name="name"]')||{}).value||'').trim(),
     phone:phoneRaw,
-    item:f.elements['item'].value||'',
-    agreeCollect:f.elements['agree_privacy'].checked,
-    agreeMarketing:f.elements['agree_marketing'].checked,
+    item:(f.querySelector('[name="item"]')||{}).value||'',
+    agreeCollect:!!(f.querySelector('[name="agree_privacy"]')||{}).checked,
+    agreeMarketing:!!(f.querySelector('[name="agree_marketing"]')||{}).checked,
     source:location.href
   };
   function done(){
