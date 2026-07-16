@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리투오(Elravie Re2O) 콜라겐 스킨부스터 | 성형외과 전문의 직접 시술</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#F26B54;
+    --brand-deep:#E1543C;
+    --brand-bright:#FF9C7E;
+    --accent:#F47960;
+    --ink:#3A2A26;
+    --muted:#8C7873;
+    --line:#F5DED6;
+    --bg:#ffffff;
+    --bg-soft:#FDEEE9;
+    --peach:#FBE0D7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .script{font-family:'Playfair Display',serif;font-style:italic}
+  .wrap{max-width:520px;margin:0 auto;background:var(--bg);position:relative;
+    box-shadow:0 0 40px rgba(0,0,0,.06)}
+  .hero-banner{line-height:0}
+  .hero-banner img{width:100%;display:block}
+  .prodshot{text-align:center;margin:24px 0 4px;padding:22px 0;position:relative}
+  .prodshot:before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:86%;height:70%;background:radial-gradient(ellipse,#FBE0D7,transparent 70%);border-radius:50%;z-index:0}
+  .prodshot img{max-width:82%;height:auto;position:relative;z-index:1;
+    filter:drop-shadow(0 14px 24px rgba(226,90,60,.18))}
+  section{padding:52px 24px}
+  .eyebrow{color:var(--brand);font-weight:700;font-size:13px;letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:24px;font-weight:800;color:var(--brand-deep);line-height:1.35;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:15px}
+  .center{text-align:center}
+
+  .hero{
+    background:linear-gradient(165deg,#FFB79B 0%,#F47A60 55%,#EF5F44 100%);
+    color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden;
+  }
+  .hero:before{content:"";position:absolute;top:-70px;right:-70px;width:210px;height:210px;
+    background:radial-gradient(circle,rgba(255,255,255,.4),transparent 70%);border-radius:50%}
+  .hero:after{content:"";position:absolute;bottom:-90px;left:-60px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%);border-radius:50%}
+  .wordmark{font-family:'Playfair Display',serif;font-weight:600;font-size:22px;letter-spacing:.02em;
+    margin-bottom:6px;position:relative}
+  .wordmark b{font-weight:600}
+  .hero .badge-line{display:inline-flex;gap:6px;align-items:center;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+    padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:600;margin-bottom:20px;
+    position:relative}
+  .hero h1{font-size:31px;font-weight:800;line-height:1.32;margin-bottom:14px;position:relative}
+  .hero h1 .hl{color:#fff3ee;text-shadow:0 2px 12px rgba(180,50,30,.25)}
+  .hero p{color:#fff0e9;font-size:15px;margin-bottom:26px;position:relative}
+  .price-cards{display:flex;gap:12px;margin-bottom:26px;position:relative}
+  .pcard{flex:1;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);
+    border-radius:14px;padding:18px 12px;backdrop-filter:blur(2px)}
+  .pcard .nm{font-size:15px;font-weight:700;margin-bottom:2px}
+  .pcard .sub{font-size:11.5px;color:#ffe4d8;margin-bottom:10px}
+  .pcard .now{font-size:24px;font-weight:800;color:#fff}
+  .pcard .now small{font-size:12px;font-weight:600;color:#ffe4d8}
+  .pcard .vatnote{font-size:11px;color:#ffdccb;margin-top:3px}
+  .btn{display:block;width:100%;background:#fff;color:var(--brand-deep);border:none;
+    padding:17px;border-radius:12px;font-size:16.5px;font-weight:800;cursor:pointer;
+    text-decoration:none;box-shadow:0 8px 22px rgba(180,50,30,.28);transition:.2s}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(180,50,30,.38)}
+  .hero .note{font-size:11.5px;color:#ffdccb;margin-top:12px;position:relative}
+
+  .trust{background:var(--bg-soft);border-bottom:1px solid var(--line)}
+  .trust-grid{display:flex;gap:10px}
+  .tcard{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 10px;text-align:center;box-shadow:0 3px 12px rgba(226,90,60,.06)}
+  .tcard .ic{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;
+    background:linear-gradient(140deg,#ffe6dc,#ffd1c2);display:flex;align-items:center;
+    justify-content:center}
+  .tcard .ic svg{width:24px;height:24px;stroke:var(--brand)}
+  .tcard b{display:block;font-size:14.5px;color:var(--brand-deep);font-weight:700;line-height:1.35}
+  .tcard span{font-size:11.5px;color:var(--muted)}
+
+  .brandline{background:linear-gradient(155deg,#F58A6E,#E85A42);color:#fff;text-align:center;
+    padding:34px 24px}
+  .brandline .script{font-size:30px;color:#ffd9cc;display:block;margin-bottom:6px}
+  .brandline p{font-size:16px;font-weight:600;line-height:1.5}
+  .feat{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .feat:last-child{border-bottom:none}
+  .feat .dot{flex:none;width:30px;height:30px;border-radius:9px;background:#ffe9e2;
+    display:flex;align-items:center;justify-content:center;color:var(--brand);font-weight:800;font-size:14px}
+  .feat b{color:var(--brand-deep);font-size:15.5px}
+  .feat p{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .eff-row{display:flex;gap:9px;margin-top:26px}
+  .eff{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:linear-gradient(150deg,#F98266,#EF5F44);color:#fff;
+    border-radius:12px;min-height:64px;padding:12px 6px;font-size:13px;font-weight:700;line-height:1.3;
+    box-shadow:0 6px 14px rgba(232,90,60,.22)}
+
+  .compare{background:var(--bg-soft)}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 4px 16px rgba(226,90,60,.08);font-size:13.5px}
+  th,td{padding:14px 12px;text-align:center;border-bottom:1px solid var(--line)}
+  thead th{background:var(--brand);color:#fff;font-size:14px}
+  thead th.lbl{background:var(--brand-deep)}
+  tbody th{background:var(--bg-soft);color:var(--brand-deep);font-weight:700;text-align:left;font-size:12.5px}
+  td .big{font-weight:800;color:var(--brand-deep);font-size:15px}
+  tr:last-child td,tr:last-child th{border-bottom:none}
+
+  .target{background:linear-gradient(160deg,#F58A6E,#E85A42);color:#fff}
+  .target h2{color:#fff}
+  .target .script{color:#ffd9cc;font-size:26px;display:block;text-align:center;margin-bottom:4px}
+  .tlist{margin-top:20px;display:flex;flex-direction:column;gap:11px}
+  .titem{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:15px 16px;font-size:14px}
+  .titem .ck{flex:none;width:24px;height:24px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--brand)}
+
+  .priceband{background:var(--bg-soft);text-align:center}
+  .pb-row{display:flex;gap:12px;margin-top:20px}
+  .pb-card{flex:1;background:#fff;border:2px solid var(--line);border-radius:16px;padding:22px 14px}
+  .pb-card.best{border-color:var(--brand)}
+  .pb-card .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--brand);
+    background:#ffe6dc;padding:3px 10px;border-radius:100px;margin-bottom:8px}
+  .pb-card .nm{font-size:16px;font-weight:800;color:var(--brand-deep)}
+  .pb-card .sub{font-size:12px;color:var(--muted);margin-bottom:12px}
+  .pb-card .now{font-size:26px;font-weight:800;color:var(--brand-deep);margin-top:2px}
+  .pb-card .vat{font-size:11.5px;color:var(--muted);margin-top:4px}
+
+  .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+  .step .no{flex:none;width:32px;height:32px;border-radius:50%;background:var(--brand);
+    color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .step b{color:var(--brand-deep);font-size:15px}
+  .step p{font-size:13.5px;color:var(--muted)}
+  .caution{background:#fff3ee;border:1px solid #f6d3c5;border-radius:12px;padding:16px;
+    margin-top:20px;font-size:13px;color:#a75b40}
+  .caution b{display:block;margin-bottom:6px;color:var(--brand-deep)}
+
+  .doctor{background:var(--bg-soft)}
+  .doc-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
+    box-shadow:0 4px 16px rgba(226,90,60,.06);text-align:center}
+  .doc-photo{width:96px;height:96px;border-radius:50%;margin:0 auto 16px;
+    background:linear-gradient(140deg,#ffd1c2,#ffe6dc);display:flex;align-items:center;
+    justify-content:center;color:var(--brand);font-size:34px}
+  .doc-card .role{color:var(--brand);font-weight:700;font-size:13px;letter-spacing:.03em}
+  .doc-card p{font-size:14px;color:var(--muted);margin-top:12px}
+
+  .formsec{background:linear-gradient(165deg,#F47A60,#E1543C);color:#fff}
+  .formsec h2{color:#fff;text-align:center}
+  .formsec .lead{color:#fff0e9;text-align:center;margin-bottom:24px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#ffe4d8}
+  .field input,.field select{width:100%;padding:14px;border:1px solid rgba(255,255,255,.4);
+    border-radius:10px;background:rgba(255,255,255,.16);color:#fff;font-size:15px}
+  .field input::placeholder{color:#ffdccb}
+  .field select option{color:#000}
+  .agree{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:#fff0e9;margin:10px 0}
+  .agree input{margin-top:3px;flex:none;width:17px;height:17px;accent-color:#fff}
+  .agree b{font-weight:700}
+  .agree-all{font-size:14.5px;font-weight:700;padding-bottom:12px;margin-bottom:4px;
+    border-bottom:1px solid rgba(255,255,255,.32)}
+  .agdetail{display:block;font-size:11px;color:#ffdccb;margin-top:3px;line-height:1.5}
+
+  footer{background:var(--bg-soft);color:var(--muted);padding:30px 24px 110px;font-size:11.5px;
+    line-height:1.8;text-align:center}
+  footer .mm{font-family:'Playfair Display',serif;font-size:15px;letter-spacing:.28em;
+    color:var(--brand-deep);font-weight:600;margin-bottom:12px}
+  footer .disc{border-top:1px solid var(--line);padding-top:16px;margin-top:6px;text-align:left}
+
+  .sticky{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;
+    padding:12px 16px;display:flex;gap:10px;z-index:50}
+  .sticky a{flex:1;text-align:center;padding:16px;border-radius:12px;font-weight:800;
+    font-size:15.5px;text-decoration:none;background:linear-gradient(135deg,#F58A6E,#E85A42);
+    color:#fff;box-shadow:0 8px 22px rgba(180,50,30,.35)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero-banner">
+    <img src="model2.png" alt="엘라비에 리투오 - 리얼 진피로 채우는 ECM 스킨부스터">
+  </div>
+
+  <header class="hero">
+    <div class="badge-line">🏥 성형외과 전문의 · 대표원장 직접 시술</div>
+    <h1 style="font-size:24px;margin-bottom:20px">지금, <span class="hl">리투오 런칭 특별가</span></h1>
+
+    <div class="price-cards">
+      <div class="pcard">
+        <div class="nm">리투오</div>
+        <div class="sub">얼굴 전체 콜라겐 부스터</div>
+        <div class="now">40<small>만원</small></div>
+        <div class="vatnote">VAT 별도</div>
+      </div>
+      <div class="pcard">
+        <div class="nm">리투오파인</div>
+        <div class="sub">눈가주위 전용</div>
+        <div class="now">34<small>만원</small></div>
+        <div class="vatnote">VAT 별도</div>
+      </div>
+    </div>
+
+    <a href="#form" class="btn">지금 상담 신청하기 →</a>
+    <div class="note">* 표기 금액은 부가세(VAT) 별도입니다</div>
+  </header>
+
+  <section class="trust">
+    <div class="trust-grid">
+      <div class="tcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 5-3 7-7 9-4-2-7-4-7-9V6z"/></svg></div>
+        <b>성형외과<br>전문의</b>
+        <span>보건복지부 인증</span>
+      </div>
+      <div class="tcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <b>대표원장<br>직접 시술</b>
+        <span>상담부터 시술까지</span>
+      </div>
+      <div class="tcard">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20"/><path d="M5 8h14"/><circle cx="12" cy="8" r="6"/></svg></div>
+        <b>1인 원장<br>책임 진료</b>
+        <span>일관된 관리</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="brandline">
+    <span class="script">Elravie Re2O</span>
+    <p>ECM 성분의 차세대 부스터<br>피부 깊은 층부터 균형과 탄탄함을</p>
+  </div>
+
+  <section>
+    <div class="eyebrow">About Re2O</div>
+    <h2>리투오, 무엇이 다를까요?</h2>
+    <p class="lead">합성 물질이 아닌, 실제 인체 동종 콜라겐(ECM)을 진피에 직접 보충합니다.</p>
+    <div class="prodshot"><img src="product.png" alt="Elravie Re2O 리투오 제품"></div>
+    <div style="margin-top:8px">
+      <div class="feat"><div class="dot">01</div><div><b>인체 동종 콜라겐(ECM)</b><p>돼지 콜라겐·합성 물질이 아닌 인체 유래 성분으로 생체 적합성이 뛰어납니다.</p></div></div>
+      <div class="feat"><div class="dot">02</div><div><b>진피층에 직접 주입</b><p>실린지로 진피층에 ECM을 직접 주입해 구조 자체를 보완하도록 설계되었습니다.</p></div></div>
+      <div class="feat"><div class="dot">03</div><div><b>직접 보충 방식</b><p>재생 유도에만 의존하지 않고 필요한 성분을 직접 채워 탄력·수분을 개선합니다.</p></div></div>
+    </div>
+    <div class="eff-row">
+      <div class="eff">모공정리</div>
+      <div class="eff">피부결<br>개선</div>
+      <div class="eff">광채피부</div>
+      <div class="eff">보습개선</div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="eyebrow">Compare</div>
+    <h2>리투오 vs 리투오파인</h2>
+    <p class="lead" style="margin-bottom:20px">고민 부위에 맞춰 선택하세요.</p>
+    <table>
+      <thead>
+        <tr><th class="lbl">구분</th><th>리투오</th><th>리투오파인</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>적용 부위</th><td>얼굴 전체</td><td>눈가주위 전용</td></tr>
+        <tr><th>주요 목적</th><td>전체 탄력·피부결 개선</td><td>눈가 잔주름·섬세 케어</td></tr>
+        <tr><th>가격<br>(VAT 별도)</th>
+          <td><span class="big">40만원</span></td>
+          <td><span class="big">34만원</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="target">
+    <span class="script">Re2O</span>
+    <h2 class="center">이런 분께 추천드려요</h2>
+    <div class="tlist">
+      <div class="titem"><span class="ck">✓</span> 얼굴 전체적으로 탱탱한 탄력을 원하시는 분</div>
+      <div class="titem"><span class="ck">✓</span> 얼굴 전체의 피부 개선을 원하시는 분</div>
+      <div class="titem"><span class="ck">✓</span> 미세주름·피부결개선·수분을 동시에 원하시는 분</div>
+      <div class="titem"><span class="ck">✓</span> 푸석푸석 건조한 피부로 고민이신 분</div>
+      <div class="titem"><span class="ck">✓</span> 눈가 잔주름이 신경 쓰이는 분</div>
+      <div class="titem"><span class="ck">✓</span> 자연스럽고 촉촉한 피부를 유지하고 싶으신 분</div>
+    </div>
+  </section>
+
+  <section class="priceband">
+    <div class="eyebrow">Price</div>
+    <h2>가격 안내</h2>
+    <div class="pb-row">
+      <div class="pb-card">
+        <div class="tag">얼굴 전체</div>
+        <div class="nm">리투오</div>
+        <div class="sub">콜라겐 스킨부스터</div>
+        <div class="now">40만원</div>
+        <div class="vat">VAT 별도</div>
+      </div>
+      <div class="pb-card best">
+        <div class="tag">눈가주위 전용</div>
+        <div class="nm">리투오파인</div>
+        <div class="sub">눈가 섬세 케어</div>
+        <div class="now">34만원</div>
+        <div class="vat">VAT 별도</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Guide</div>
+    <h2>시술 정보</h2>
+    <div style="margin-top:20px">
+      <div class="step"><div class="no">1</div><div><b>권장 주기</b><p>1~3개월 간격 2~3회 반복 시술 시 피부 재생 효과가 극대화됩니다.</p></div></div>
+      <div class="step"><div class="no">2</div><div><b>시술 시간</b><p>부위에 따라 짧은 시간 내 진행, 일상 복귀가 빠릅니다.</p></div></div>
+      <div class="step"><div class="no">3</div><div><b>전문의 상담</b><p>피부 상태와 목표에 맞춰 대표원장이 직접 시술 계획을 안내합니다.</p></div></div>
+    </div>
+    <div class="caution">
+      <b>시술 후 주의사항</b>
+      과음, 사우나·찜질방, 열탕 목욕, 격한 운동은 일정 기간 피해주세요.
+    </div>
+  </section>
+
+  <section class="doctor">
+    <div class="eyebrow center">Doctor</div>
+    <h2 class="center">성형외과 전문의가<br>직접 진료합니다</h2>
+    <div class="doc-card" style="margin-top:22px">
+      <div class="doc-photo">👨‍⚕️</div>
+      <div class="role">성형외과 전문의 · 대표원장 직접 시술</div>
+      <p>상담부터 시술까지 대표원장이 직접 진료하는 1인 원장 책임 진료 시스템으로,
+        일관된 관리와 세심한 케어를 약속합니다.</p>
+    </div>
+  </section>
+
+  <section class="formsec" id="form">
+    <div class="eyebrow center" style="color:#ffd9cc">Consultation</div>
+    <h2>1:1 상담 신청</h2>
+    <p class="lead">연락처를 남겨주시면 빠르게 안내해 드립니다.</p>
+    <form onsubmit="return submitForm(event)">
+      <div class="field"><label>이름</label><input type="text" name="name" placeholder="성함을 입력해주세요" required></div>
+      <div class="field"><label>연락처</label><input type="tel" name="phone" placeholder="010-0000-0000" required></div>
+      <div class="field"><label>관심 시술</label>
+        <select name="item" required>
+          <option value="">선택해주세요</option>
+          <option>리투오 (얼굴 전체)</option>
+          <option>리투오파인 (눈가주위)</option>
+          <option>둘 다 상담</option>
+        </select>
+      </div>
+      <label class="agree agree-all"><input type="checkbox" id="agreeAll" onclick="toggleAll(this)"> <span><b>전체 동의</b></span></label>
+      <label class="agree"><input type="checkbox" class="agchk" name="agree_privacy" required> <span><b>(필수)</b> 개인정보 수집·이용 동의 <span class="agdetail">수집항목: 이름·연락처 / 목적: 상담 및 예약 안내 / 보유기간: 목적 달성 후 지체 없이 파기</span></span></label>
+      <label class="agree"><input type="checkbox" class="agchk" name="agree_marketing" required> <span><b>(필수)</b> 광고성 정보 수신 동의 <span class="agdetail">이벤트·프로모션 등 마케팅 정보를 문자·전화로 받습니다.</span></span></label>
+      <button type="submit" class="btn">상담 신청하기</button>
+    </form>
+  </section>
+
+  <footer></footer>
+
+</div>
+
+<div class="sticky">
+  <a href="#form" class="apply">지금 상담 신청하기</a>
+</div>
+
+<script>
+function toggleAll(cb){
+  document.querySelectorAll('.agchk').forEach(function(c){c.checked=cb.checked;});
+}
+document.addEventListener('change',function(e){
+  if(e.target.classList.contains('agchk')){
+    var all=Array.prototype.slice.call(document.querySelectorAll('.agchk'));
+    document.getElementById('agreeAll').checked=all.every(function(c){return c.checked;});
+  }
+});
+function submitForm(e){
+  e.preventDefault();
+  alert('상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.');
+  e.target.reset();
+  document.getElementById('agreeAll').checked=false;
+  return false;
+}
+</script>
+</body>
+</html>
