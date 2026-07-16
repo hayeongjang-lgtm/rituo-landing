@@ -358,7 +358,7 @@
           <option>둘 다 상담</option>
         </select>
       </div>
-      <label class="agree agree-all"><input type="checkbox" id="agreeAll" onclick="toggleAll(this)"> <span><b>전체 동의</b></span></label>
+      <label class="agree agree-all"><input type="checkbox" id="agreeAll"> <span><b>전체 동의</b></span></label>
       <label class="agree"><input type="checkbox" class="agchk" name="agree_privacy" required> <span><b>(필수)</b> 개인정보 수집·이용 동의 <span class="agdetail">수집항목: 이름·연락처 / 목적: 상담 및 예약 안내 / 보유기간: 목적 달성 후 지체 없이 파기</span></span></label>
       <label class="agree"><input type="checkbox" class="agchk" name="agree_marketing" required> <span><b>(필수)</b> 광고성 정보 수신 동의 <span class="agdetail">이벤트·프로모션 등 마케팅 정보를 문자·전화로 받습니다.</span></span></label>
       <button type="button" class="moreBtn" onclick="var f=this.closest('form');var on=f.classList.toggle('show-details');this.textContent=on?'동의 항목 접기 ▴':'동의 항목 상세보기 ▾';">동의 항목 상세보기 ▾</button>
@@ -386,14 +386,21 @@
 
 <script>
 var WEBAPP_URL='https://script.google.com/macros/s/AKfycbypLLxQBecch2Dpd9BuD0SlRfkcIIIL2sFVeldnDB-KHYOzgyMtXtFgbX-rH7S6UCmDdw/exec';
-function toggleAll(cb){
-  document.querySelectorAll('.agchk').forEach(function(c){c.checked=cb.checked;});
+function syncAll(){
+  var all=document.getElementById('agreeAll');
+  var chks=Array.prototype.slice.call(document.querySelectorAll('.agchk'));
+  if(!all) return;
+  all.checked = chks.length>0 && chks.every(function(c){return c.checked;});
 }
+function toggleAll(){
+  var all=document.getElementById('agreeAll');
+  document.querySelectorAll('.agchk').forEach(function(c){c.checked=all.checked;});
+}
+// change 이벤트로 처리(모바일 삼성인터넷 대응). 전체동의↔개별 양방향 동기화.
 document.addEventListener('change',function(e){
-  if(e.target.classList.contains('agchk')){
-    var all=Array.prototype.slice.call(document.querySelectorAll('.agchk'));
-    document.getElementById('agreeAll').checked=all.every(function(c){return c.checked;});
-  }
+  if(!e.target) return;
+  if(e.target.id==='agreeAll'){ toggleAll(); }
+  else if(e.target.classList && e.target.classList.contains('agchk')){ syncAll(); }
 });
 function isValidPhone(raw){
   var d=(raw||'').replace(/[^0-9]/g,'');
