@@ -448,6 +448,16 @@ function submitForm(e){
     p.value = d.length<4 ? d : (d.length<8 ? d.slice(0,3)+'-'+d.slice(3) : d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7));
   });
 })();
+// 상담폼이 화면에 보이면 하단 고정 버튼 숨김(버튼 2개 중복 방지)
+(function(){
+  var sticky=document.querySelector('.sticky');
+  var formSec=document.getElementById('form');
+  if(!sticky||!formSec||!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    sticky.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+  },{threshold:0.12});
+  io.observe(formSec);
+})();
 </script>
 </body>
 </html>
