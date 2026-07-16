@@ -164,7 +164,10 @@
   .agree b{font-weight:700}
   .agree-all{font-size:14.5px;font-weight:700;padding-bottom:12px;margin-bottom:4px;
     border-bottom:1px solid rgba(255,255,255,.32)}
-  .agdetail{display:block;font-size:11px;color:#ffdccb;margin-top:3px;line-height:1.5}
+  .agdetail{display:none;font-size:11px;color:#ffdccb;margin-top:3px;line-height:1.5;padding-left:26px}
+  form.show-details .agdetail{display:block}
+  .moreBtn{background:none;border:none;color:#ffe4d8;font-size:12px;text-decoration:underline;
+    cursor:pointer;padding:6px 0 2px 26px;display:block}
 
   footer{background:var(--bg-soft);color:var(--muted);padding:30px 24px 110px;font-size:11.5px;
     line-height:1.8;text-align:center}
@@ -347,6 +350,7 @@
       <label class="agree agree-all"><input type="checkbox" id="agreeAll" onclick="toggleAll(this)"> <span><b>전체 동의</b></span></label>
       <label class="agree"><input type="checkbox" class="agchk" name="agree_privacy" required> <span><b>(필수)</b> 개인정보 수집·이용 동의 <span class="agdetail">수집항목: 이름·연락처 / 목적: 상담 및 예약 안내 / 보유기간: 목적 달성 후 지체 없이 파기</span></span></label>
       <label class="agree"><input type="checkbox" class="agchk" name="agree_marketing" required> <span><b>(필수)</b> 광고성 정보 수신 동의 <span class="agdetail">이벤트·프로모션 등 마케팅 정보를 문자·전화로 받습니다.</span></span></label>
+      <button type="button" class="moreBtn" onclick="var f=this.closest('form');var on=f.classList.toggle('show-details');this.textContent=on?'동의 항목 접기 ▴':'동의 항목 상세보기 ▾';">동의 항목 상세보기 ▾</button>
       <button type="submit" class="btn">상담 신청하기</button>
     </form>
   </section>
@@ -372,10 +376,11 @@ document.addEventListener('change',function(e){
 });
 function isValidPhone(raw){
   var d=(raw||'').replace(/[^0-9]/g,'');
-  if(!/^01[016789][0-9]{7,8}$/.test(d)) return false;        // 휴대폰 형식(010/011/016~019)
+  // 010은 정확히 11자리, 그 외 통신사(011/016~019)는 10~11자리만 허용
+  if(!(/^010\d{8}$/.test(d) || /^01[16789]\d{7,8}$/.test(d))) return false;
   var sub=d.slice(3);                                        // 국번 제외 가입자번호
-  if(/^(\d)\1+$/.test(sub)) return false;                    // 0000000·1111111 등 동일숫자
-  if('0123456789012345678'.indexOf(sub)>-1) return false;    // 오름차순 연속(1234567 등)
+  if(/^(\d)\1+$/.test(sub)) return false;                    // 00000000·11111111 등 동일숫자
+  if('0123456789012345678'.indexOf(sub)>-1) return false;    // 오름차순 연속(12345678 등)
   if('9876543210987654321'.indexOf(sub)>-1) return false;    // 내림차순 연속
   return true;
 }
@@ -409,6 +414,14 @@ function submitForm(e){
     .then(done).catch(done);
   return false;
 }
+(function(){
+  var p=document.querySelector('input[name="phone"]');
+  if(!p) return;
+  p.addEventListener('input',function(){
+    var d=p.value.replace(/[^0-9]/g,'').slice(0,11);   // 숫자만, 최대 11자리로 제한
+    p.value = d.length<4 ? d : (d.length<8 ? d.slice(0,3)+'-'+d.slice(3) : d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7));
+  });
+})();
 </script>
 </body>
 </html>
