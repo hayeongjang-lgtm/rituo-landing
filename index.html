@@ -360,6 +360,7 @@
 </div>
 
 <script>
+var WEBAPP_URL='https://script.google.com/macros/s/AKfycbypLLxQBecch2Dpd9BuD0SlRfkcIIIL2sFVeldnDB-KHYOzgyMtXtFgbX-rH7S6UCmDdw/exec';
 function toggleAll(cb){
   document.querySelectorAll('.agchk').forEach(function(c){c.checked=cb.checked;});
 }
@@ -371,9 +372,26 @@ document.addEventListener('change',function(e){
 });
 function submitForm(e){
   e.preventDefault();
-  alert('상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.');
-  e.target.reset();
-  document.getElementById('agreeAll').checked=false;
+  var f=e.target;
+  var btn=f.querySelector('button[type=submit]');
+  if(btn){btn.disabled=true;btn.textContent='접수 중...';}
+  var payload={
+    submittedAt:new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),
+    name:(f.elements['name'].value||'').trim(),
+    phone:(f.elements['phone'].value||'').trim(),
+    item:f.elements['item'].value||'',
+    agreeCollect:f.elements['agree_privacy'].checked,
+    agreeMarketing:f.elements['agree_marketing'].checked,
+    source:location.href
+  };
+  function done(){
+    alert('상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.');
+    f.reset();
+    var a=document.getElementById('agreeAll'); if(a){a.checked=false;}
+    if(btn){btn.disabled=false;btn.textContent='상담 신청하기';}
+  }
+  fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+    .then(done).catch(done);
   return false;
 }
 </script>
