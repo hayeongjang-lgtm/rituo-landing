@@ -386,22 +386,32 @@
 
 <script>
 var WEBAPP_URL='https://script.google.com/macros/s/AKfycbypLLxQBecch2Dpd9BuD0SlRfkcIIIL2sFVeldnDB-KHYOzgyMtXtFgbX-rH7S6UCmDdw/exec';
-function syncAll(){
+// 전체동의 ↔ 개별동의 동기화 (삼성인터넷/갤럭시 대응: 요소 직접 바인딩 + click/change 둘 다 + 강제 리페인트)
+(function(){
+  function chks(){ return Array.prototype.slice.call(document.querySelectorAll('.agchk')); }
+  function repaint(c){ c.style.display='none'; void c.offsetWidth; c.style.display=''; }
+  function applyAll(){
+    var all=document.getElementById('agreeAll');
+    if(!all) return;
+    chks().forEach(function(c){ if(c.checked!==all.checked){ c.checked=all.checked; repaint(c); } });
+  }
+  function syncAll(){
+    var all=document.getElementById('agreeAll');
+    if(!all) return;
+    var list=chks();
+    var v=list.length>0 && list.every(function(c){return c.checked;});
+    if(all.checked!==v){ all.checked=v; repaint(all); }
+  }
   var all=document.getElementById('agreeAll');
-  var chks=Array.prototype.slice.call(document.querySelectorAll('.agchk'));
-  if(!all) return;
-  all.checked = chks.length>0 && chks.every(function(c){return c.checked;});
-}
-function toggleAll(){
-  var all=document.getElementById('agreeAll');
-  document.querySelectorAll('.agchk').forEach(function(c){c.checked=all.checked;});
-}
-// change 이벤트로 처리(모바일 삼성인터넷 대응). 전체동의↔개별 양방향 동기화.
-document.addEventListener('change',function(e){
-  if(!e.target) return;
-  if(e.target.id==='agreeAll'){ toggleAll(); }
-  else if(e.target.classList && e.target.classList.contains('agchk')){ syncAll(); }
-});
+  if(all){
+    all.addEventListener('change',applyAll);
+    all.addEventListener('click',function(){ setTimeout(applyAll,0); });
+  }
+  chks().forEach(function(c){
+    c.addEventListener('change',syncAll);
+    c.addEventListener('click',function(){ setTimeout(syncAll,0); });
+  });
+})();
 function isValidPhone(raw){
   var d=(raw||'').replace(/[^0-9]/g,'');
   // 010은 정확히 11자리, 그 외 통신사(011/016~019)는 10~11자리만 허용
