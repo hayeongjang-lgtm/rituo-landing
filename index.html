@@ -160,7 +160,13 @@
   .field input::placeholder{color:#ffdccb}
   .field select option{color:#000}
   .agree{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:#fff0e9;margin:10px 0}
-  .agree input{margin-top:3px;flex:none;width:17px;height:17px;accent-color:#fff}
+  /* 체크박스를 CSS로 직접 그림(삼성인터넷 리페인트 버그 회피) */
+  .agree input[type=checkbox]{-webkit-appearance:none;appearance:none;flex:none;margin-top:2px;
+    width:20px;height:20px;border:2px solid #fff;border-radius:5px;background:transparent;
+    position:relative;cursor:pointer;outline:none}
+  .agree input[type=checkbox]:checked{background:#fff}
+  .agree input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:2px;
+    width:5px;height:10px;border:solid #E1543C;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
   .agree b{font-weight:700}
   .agree-all{font-size:14.5px;font-weight:700;padding-bottom:12px;margin-bottom:4px;
     border-bottom:1px solid rgba(255,255,255,.32)}
