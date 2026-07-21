@@ -198,6 +198,23 @@
   .thanks-card button{background:#fff;color:#E1543C;border:none;padding:14px 40px;border-radius:12px;
     font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(120,40,20,.2)}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2268879040298941');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2268879040298941&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <div class="wrap">
@@ -450,6 +467,7 @@ function submitForm(e){
   // 버튼 누르는 즉시 감사 화면 표시 (전송은 백그라운드 → 로딩 체감·새로고침 방지)
   var ov=document.getElementById('thanks');
   if(ov){ov.classList.add('on');}
+  if(window.fbq){fbq('track','CompleteRegistration');}
   window.scrollTo(0,0);
   fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).catch(function(){});
   f.reset();
