@@ -214,7 +214,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2268879040298941&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
+<!-- End Meta Pixel Code --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VSKR9JN9W4"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VSKR9JN9W4');gtag('config','AW-17025416993');</script>
 </head>
 <body>
 <div class="wrap">
@@ -467,7 +467,7 @@ function submitForm(e){
   // 버튼 누르는 즉시 감사 화면 표시 (전송은 백그라운드 → 로딩 체감·새로고침 방지)
   var ov=document.getElementById('thanks');
   if(ov){ov.classList.add('on');}
-  if(window.fbq){fbq('track','CompleteRegistration');}
+  if(window.fbq){fbq('track','CompleteRegistration');}if(window.gtag){gtag('event','conversion',{'send_to':'AW-17025416993/6vXcCIS497YdEKH-rLY_','value':1.0,'currency':'KRW'});}
   window.scrollTo(0,0);
   fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).catch(function(){});
   f.reset();
